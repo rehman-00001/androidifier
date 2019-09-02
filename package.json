@@ -1,0 +1,26 @@
+{
+  "name": "androidifier",
+  "version": "0.1.0",
+  "description": "Convert any web page into an android application in a couple of minutes.",
+  "main": "src/index.js",
+  "author": "Abdul Rehman",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0"
+  },
+  "scripts": {
+    "start": "clear && node src"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "fs-extra": "^8.1.0",
+    "gitcloud": "^0.1.0",
+    "hasbin": "^1.2.3",
+    "page-icon": "^0.3.0",
+    "shelljs": "^0.8.3",
+    "tmp": "^0.1.0"
+  }
+}
