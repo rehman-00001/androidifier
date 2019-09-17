@@ -1,5 +1,5 @@
 # androidifier
-⚡ Convert any web page into an android application in a couple of minutes ⚡
+⚡ Convert any web page into an android application in minutes ⚡
 
 
 Inspired by this project: [Nativefier](https://github.com/jiahaog/nativefier)
