@@ -42,7 +42,7 @@ function buildUnsignedApp() {
 }
 
 async function initializeAppInfo() {
-  const appName = await readLine("Name of this Application: ");
+  const appName = await readLine("Name of your android application: ");
   const siteUrl = await readLine(
     "(Please specify correct url with http:// or https://) \nWebsite url: "
   );
@@ -81,13 +81,18 @@ function assignIcon() {
   });
 }
 
+
+function clearOutputFolder() {
+  const outputPath = path.resolve(__dirname, '../output/');
+  fsExtra.emptyDirSync(outputPath);
+}
+
 async function buildApp() {
   shell.cd("src/android-app");
   const { appName } = appInfo;
   // TODO: generate Signed apk
   // const signApp = await readLine("Do you want to sign this app? (y/N): ");
-  // if (signApp.toLowerCase() !== "y") {
-  shell.exec("rm -R ../../output/*.apk");
+  // if (signApp.toLowerCase() !== "y") {    
   shell.exec(buildUnsignedApp());
   fsExtra.copySync(
     path.resolve(__dirname, builtUnsignedAppPath),
@@ -100,7 +105,8 @@ async function buildApp() {
 
 initializeAppInfo().then(app => {
   appInfo = app;
-  Promise.all([assignNameAndUrl(), assignPackageId(), assignIcon()]).then(
+  clearOutputFolder();
+  Promise.all([assignNameAndUrl(), assignPackageId()]).then(
     buildApp
   );
 });
